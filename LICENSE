@@ -1,0 +1,62 @@
+MIT License
+
+Copyright (c) 2025 Sanjeet Kumar
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+
+---
+
+# Technical Documentation (Summary)
+
+---
+
+## Onebox Email Viewer - Technical Overview
+
+### Purpose
+
+This React app/component provides an interface for viewing and managing emails fetched from the Onebox API backend. It handles secure token-authenticated requests to list emails, view details, send replies, and delete messages.
+
+### Architecture
+
+- **Frontend:** React functional components with hooks (`useState`, `useEffect`)
+- **State management:** Local component state, no external global store
+- **API communication:** Custom `apiGet`, `apiPost`, and `apiDelete` helpers wrapping `fetch` or `axios`
+- **UI:** Simple list/detail view, using controlled components for replies
+- **Security:** Uses token passed as prop for Bearer auth in API calls
+
+### Components
+
+- **OneboxList:** Fetches and displays list of emails; triggers selection
+- **OneboxDetail:** Fetches detailed email data by `threadId`; supports reply & delete actions
+
+### Data Flow
+
+1. `OneboxList` calls `GET /onebox/list` → receives array of email summaries.
+2. On email select, `OneboxDetail` calls `GET /onebox/messages/:threadId` → receives detailed email object.
+3. User can delete (DELETE `/onebox/messages/:threadId`) or reply (POST `/onebox/reply`) to emails.
+4. Component state updates accordingly to reflect UI changes.
+
+### API Response Structure
+
+- List endpoint response:
+  ```json
+  {
+    "status": 200,
+    "data": [
+      {
+        "id": 105633,
+        "fromName": "Shaw Adley",
+        "fromEmail": "shaw@getmemeetings.com",
+        "subject": "Email subject",
+        ...
+      },
+      ...
+    ]
+  }
+
