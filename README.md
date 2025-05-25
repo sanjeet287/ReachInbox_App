@@ -48,7 +48,7 @@ npm run dev
 
 Open http://localhost:5173 to view the app.
 
-*******API Endpoints Used***********
+API Endpoints Used
 GET /onebox/list — Fetches email list
 
 GET /onebox/messages/:threadId — Fetches detailed email by threadId
