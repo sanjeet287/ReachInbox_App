@@ -26,36 +26,7 @@ Supports listing emails, viewing detailed email content (HTML formatted), replyi
 ## Getting Started
 
 ### 1. Clone the repository
+
 ```bash
-git clone https://github.com/yourusername/onebox-email-viewer.git
-cd onebox-email-viewer
-````
-### 2.Install Dependencies
-npm install
-# or
-yarn install
-
-#### 3. Configure Environment
-
-Create a .env file if needed (e.g., for API base URL):
-
-VITE_API_BASE_URL=https://hiring.reachinbox.xyz/api/v1
-
-Adjust API URL in your api.js utils accordingly.
-
-#### 4. Run the development server
-npm run dev
-
-Open http://localhost:5173 to view the app.
-
-API Endpoints Used
-GET /onebox/list — Fetches email list
-
-GET /onebox/messages/:threadId — Fetches detailed email by threadId
-
-POST /onebox/reply — Sends a reply to an email
-
-DELETE /onebox/messages/:threadId — Deletes an email
-
-
-
+git clone https://github.com/sanjeet287/ReachInbox_App.git
+cd ReachInbox_App
